@@ -4,7 +4,6 @@
 Folder structure:
 
 - `daint/`: Helper scripts for running the jobs on Piz Daint supercomputer of the Swiss National Supercomputing Centre.
-- `envs/`: Conda environment.
 - `etc/`: Miscellaneous graphical files.
 - `notebooks/`: IPython notebooks for analysis and figure creation.
 - `scripts/`: Python scripts for figure creation.
