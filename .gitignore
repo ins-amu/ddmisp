@@ -1,0 +1,4 @@
+
+__pycache__/
+.snakemake
+.ipynb_checkpoints/

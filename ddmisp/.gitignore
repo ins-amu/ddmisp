@@ -1,0 +1,10 @@
+:*.pyc
+figs/
+run/
+notebooks/
+
+dag.pdf
+stan/*.hpp
+stan/ssinf
+stan/msinf
+data

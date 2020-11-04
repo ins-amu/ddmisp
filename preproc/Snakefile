@@ -1,0 +1,50 @@
+
+import numpy as np
+
+
+ONSETS = ["ABN", "INC", "LOW"]
+ATLASES = ["dk", "vep"]
+SIDS = list(range(1, 51))
+THRESHOLDS = 5 * 2**np.linspace(-1, 2, 10)
+
+rule all:
+    input:
+        conn_matrices=expand("run/conn/{atlas}/id{sid:03d}.txt", atlas=ATLASES, sid=SIDS),
+        onset_channels=expand("run/onset_channels/{onset}/id{sid:03d}.json", onset=ONSETS, sid=SIDS),
+        onset_regions=expand("run/onset_regions/{onset}/{atlas}/id{sid:03d}.json", onset=ONSETS, atlas=ATLASES, sid=SIDS),
+        region_names=expand("run/conn/region_names.{atlas}.txt", atlas=ATLASES)
+
+rule threshold:
+    input:
+        expand("run/onset_channels/INC_{thr:07.4f}/id{sid:03d}.json", thr=THRESHOLDS, sid=SIDS)
+
+
+rule regionNames:
+    input:
+    output: "run/conn/region_names.{atlas}.txt"
+    shell: "python scripts/save_region_names.py {wildcards.atlas} {output[0]}"
+
+
+rule prepConnMatrices:
+    input:
+    output: "run/conn/{atlas}/id{sid}.txt"
+    shell: "python scripts/get_conn_matrix.py {wildcards.sid} {wildcards.atlas} {output[0]}"
+
+
+rule getSeizureInfo:
+    input:
+    output: "run/SeizureInfo.json"
+    shell: "python scripts/get_seizure_info.py {output[0]}"
+
+
+rule getOnsetOnChannels:
+    input:
+    output: "run/onset_channels/{onset}/id{sid}.json"
+    threads: 4
+    shell: "python scripts/onsettimes.py {wildcards.sid} {wildcards.onset} {output[0]}"
+
+
+rule mapChannelsToRegions:
+    input:  "run/onset_channels/{onset}/id{sid}.json"
+    output: "run/onset_regions/{onset}/{atlas}/id{sid}.json"
+    shell: "python scripts/mapping.py {wildcards.sid} {wildcards.atlas} {input[0]} {output[0]}"
