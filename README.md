@@ -11,6 +11,10 @@ This repository contains the code and data associated with [1].
 
 Further details are described in each directory. Due to the nature of the patient data used in the study, these are available upon reasonable request from the authors.
 
+## Environment
+
+Python 3.7 with multiple scientific and neuroscientic libraries is necessary. Use the environment file `env.yml` to prepare the conda environment.
+
 
 ## References
 
