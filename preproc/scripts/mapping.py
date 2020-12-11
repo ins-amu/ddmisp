@@ -155,6 +155,7 @@ def map_dist(subj, rec_id, labelvol, ch_ns, ch_sz, tch_sz, data_file=None, img_f
         else:
             (r1, d1), (_, d2) = closeregs[:2]
 
+        # TODO: Include upper limit?
         drat = d2/(d1 + 0.5)
         if drat > 2:
             if i < nns:
