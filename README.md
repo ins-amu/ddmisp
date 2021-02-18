@@ -18,4 +18,4 @@ Python 3.7 with multiple scientific and neuroscientic libraries is necessary. Us
 
 ## References
 
-[1] Sip, V., Hashemi, M., Vattikonda, A.N., Woodman, M., Wang, H., Scholly, J., Medina Villalon, S., Guye, M., Bartolomei, F., Jirsa, V.K. Data-driven method to infer the seizure propagation patterns in an epileptic brain from intracranial electroencephalography. medRxiv, 2020. https://doi.org/10.1101/2020.07.30.20165183
+[1] Sip V, Hashemi M, Vattikonda AN, Woodman MM, Wang H, Scholly J, et al. (2021) Data-driven method to infer the seizure propagation patterns in an epileptic brain from intracranial electroencephalography. PLoS Comput Biol 17(2): e1008689. https://doi.org/10.1371/journal.pcbi.1008689
