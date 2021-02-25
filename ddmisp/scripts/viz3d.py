@@ -9,7 +9,7 @@ import vtkplotter as vp
 
 from util import io
 
-SUBJECTS_DIR = "/home/vep/RetrospectivePatients/1-Processed/"
+SUBJECT_DIR = "/home/vep/RetrospectivePatients/1-Processed/"
 
 
 def read_structural_data(sid, rid):
