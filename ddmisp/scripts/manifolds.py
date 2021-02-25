@@ -6,7 +6,7 @@ from matplotlib import gridspec
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import numpy as np
 
-import vtkplotter as vp
+import vedo as vp
 import vtk
 
 sys.path.append(os.getcwd())
@@ -94,8 +94,8 @@ def viz_param_manifold(filename, size):
     vmesh_hns = vp.Mesh([data['verts_hns'], data['triangs_hns']])
     k = 3
     prior = (2*np.pi)**(-k/2) * (np.exp(-0.5 * np.sum(vmesh_hns.points()**2, axis=1)))
-    vmesh_hns.pointColors(prior, cmap='Reds')
-    vmesh_hns.addScalarBar(vmin=0, horizontal=True, nlabels=6, c='k', pos=(0.74, 0.01),
+    vmesh_hns.pointColors(prior, cmap='Reds', vmin=0)
+    vmesh_hns.addScalarBar(horizontal=True, nlabels=6, c='k', pos=(0.74, 0.01),
                            titleFontSize=44)
     vmesh_hns.scalarbar.SetLabelFormat("%.2g")
     vmesh_hns.scalarbar.SetBarRatio(1.0)

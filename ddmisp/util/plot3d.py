@@ -6,7 +6,7 @@ import zipfile
 import numpy as np
 
 import matplotlib.pyplot as plt
-import vtkplotter as vp
+import vedo as vp
 
 from . import io
 

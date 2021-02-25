@@ -5,7 +5,7 @@ import zipfile
 
 import numpy as np
 
-import vtkplotter as vp
+import vedo as vp
 
 from util import io
 
@@ -90,7 +90,7 @@ def viz_mean_excitability(sid, rid):
             vpoints.append(vp.Cube(regpos[i], side=6, c=vp.colorMap(scalar[i], cmap, vmin, vmax)))
 
     vbar = vp.Points(regpos, r=0.01).pointColors(scalar, cmap=cmap, vmin=vmin, vmax=vmax)
-    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02), vmin=vmin, vmax=vmax)
+    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02))
 
     def slider(widget, event):
         percentile = widget.GetRepresentation().GetValue()
@@ -129,7 +129,7 @@ def viz_excitability(sid, rid):
             vpoints.append(vp.Cube(regpos[i], side=6, c=vp.colorMap(pexc[i], cmap, vmin, vmax)))
 
     vbar = vp.Points(regpos, r=0.01).pointColors(pexc, cmap=cmap, vmin=vmin, vmax=vmax)
-    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02), vmin=vmin, vmax=vmax)
+    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02))
 
     def cslider(widget, event):
         ctr = widget.GetRepresentation().GetValue()
@@ -251,13 +251,13 @@ def make_video(sid, rid, video_file):
             vpoints.append(vp.Cube(regpos[i], side=6, c=vp.colorMap(psz[i], cmap, 0, 1)))
 
     vbar = vp.Points(regpos, r=0.01).pointColors(psz, cmap=cmap, vmin=0, vmax=1)
-    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02), vmin=0, vmax=1)
+    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02))
     vtext = vp.Text2D(f"t = {t:4.1f} s", pos=0, s=2, c='black')
 
-    
+
     center = np.mean(regpos, axis=0)
     dist = 2.5*(np.max(regpos[:, 1]) - np.min(regpos[:, 1]))
-            
+
     # Video -------------------------------------------------------
     vplotter = vp.Plotter(axes=0, interactive=0, offscreen=True, size=(1800, 1800))
     nframes = 3000
@@ -319,7 +319,7 @@ def viz_seizure(sid, rid):
             vpoints.append(vp.Cube(regpos[i], side=6, c=vp.colorMap(psz[i], cmap, vmin, vmax)))
 
     vbar = vp.Points(regpos, r=0.01).pointColors(psz, cmap=cmap, vmin=vmin, vmax=vmax)
-    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02), vmin=vmin, vmax=vmax)
+    vbar.addScalarBar(horizontal=True, pos=(0.8, 0.02))
 
     def tslider(widget, event):
         t = widget.GetRepresentation().GetValue()
