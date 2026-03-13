@@ -1,7 +1,11 @@
 
 # DDMISP: Data-driven method to infer the seizure propagation patterns
 
-This repository contains the code and data associated with [1].
+This repository contains the code and data associated with the study by [Sip et al., Plos CB (2021)](#references). In the study we build a method to estimate brain activity during epileptic seizures from sparse intracranial EEG measurements. This way we can fill in the brain activity that would remain otherwise hidden. At the same time, we estimate the probability distributions of the epileptogenicity of the nodes in the brain network.
+
+<p align="center">
+<img src="./misc/example.png" height="400rm" align="center" style="margin-right: 20px;">
+</p>
 
 
 ## Structure
@@ -18,4 +22,4 @@ Python 3.7 with multiple scientific and neuroscientic libraries is necessary. Us
 
 ## References
 
-[1] Sip V, Hashemi M, Vattikonda AN, Woodman MM, Wang H, Scholly J, et al. (2021) Data-driven method to infer the seizure propagation patterns in an epileptic brain from intracranial electroencephalography. PLoS Comput Biol 17(2): e1008689. https://doi.org/10.1371/journal.pcbi.1008689
+Sip V, Hashemi M, Vattikonda AN, Woodman MM, Wang H, Scholly J, et al. (2021) Data-driven method to infer the seizure propagation patterns in an epileptic brain from intracranial electroencephalography. PLoS Comput Biol 17(2): e1008689. https://doi.org/10.1371/journal.pcbi.1008689
